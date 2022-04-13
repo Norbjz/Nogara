@@ -112,6 +112,15 @@ button:hover {
   font-size: 12px;
 }
 
+.existente {
+  display: none;
+  text-align: center;
+  max-width: 200px;
+  margin: 0px auto;
+  color: red;
+  font-size: 12px;
+}
+
 .modal {
   display: none;
   flex-direction: column;

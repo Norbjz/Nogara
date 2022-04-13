@@ -5,6 +5,9 @@ var noUsuarios = 0;
 function init() {
   var user = document.getElementById('user');
   var pass = document.getElementById('pass');
+  document.getElementsByClassName('existente')[0].style.display = 'none';
+  document.getElementsByClassName('requerido')[0].style.display = 'none';
+  document.getElementsByClassName('registrado')[0].style.display = 'none';
 
   if (user.value === '' || pass.value === '') {
     document.getElementsByClassName('registrado')[0].style.display = 'none';
@@ -15,7 +18,11 @@ function init() {
     info[0] = getInfo(user);
     info[1] = getInfo(pass);
 
-    saveInfo(info);
+    if (usuarios != 0) {
+      checkInfo(info[0], info[1]);
+    } else {
+      saveInfo(info);
+    }
 
     clearInput(user, pass);
   }
@@ -25,12 +32,31 @@ function getInfo(input) {
   return input.value;
 }
 
+function checkInfo(user, pass) {
+  var contador = 0;
+
+  for (let index = 0; index < usuarios.length; index++) {
+    var checkeo = usuarios[index][0].indexOf(user);
+    if (checkeo != -1) {
+      contador++;
+    }
+  }
+
+  if (contador != 0) {
+    document.getElementsByClassName('existente')[0].style.display = 'block';
+  } else {
+    var info = [];
+    info[0] = user;
+    info[1] = pass;
+    saveInfo(info);
+  }
+}
+
 function saveInfo(info) {
   document.getElementsByClassName('registrado')[0].style.display = 'block';
   document.getElementsByClassName('requerido')[0].style.display = 'none';
   usuarios[noUsuarios] = info;
   noUsuarios++;
-  console.log(usuarios);
 }
 
 function clearInput(user, pass) {
@@ -50,6 +76,7 @@ function ocultar() {
 
 function pintar() {
   document.getElementsByClassName('cards')[0].replaceChildren('');
+
   for (let index = 0; index < usuarios.length; index++) {
     var card = document.createElement('div');
     card.classList = 'userCard';
@@ -65,5 +92,4 @@ function pintar() {
 
     document.getElementsByClassName('cards')[0].appendChild(card);
   }
-  console.log(usuarios);
 }
