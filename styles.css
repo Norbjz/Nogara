@@ -25,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 10px;
+  padding: 20px 0;
   text-shadow: 1px 3px 4px black;
 }
 
@@ -37,13 +37,13 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px;
+  padding: 50px;
   margin: 0 auto;
   width: max-content;
 }
 
 .card {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
     var(--bg-img);
   height: 480px;
   width: 300px;
