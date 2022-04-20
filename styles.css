@@ -10,7 +10,7 @@
 
 body {
   height: 100vh;
-  background: url(/img/low-poly-grid-haikei.png);
+  background: url(img/grid.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
