@@ -103,7 +103,7 @@ function crearTarjetas() {
     var card = document.createElement('div');
     card.classList = 'userCard';
 
-    var contenido = `<img src="https://picsum.photos/150" alt="User" />
+    var contenido = `<img src="img/usuario.png" alt="User" />
     <h3>Usuario ${index + 1}</h2>
       <p>${usuarios[index][0]}</p>
     <h3>Contraseña</h3>
