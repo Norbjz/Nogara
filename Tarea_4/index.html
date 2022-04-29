@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Tarea 4</title>
+  </head>
+  <body>
+    <button class="magia" onclick="magia()">
+      <ion-icon name="refresh-outline"></ion-icon>
+    </button>
+    <div class="calculadora">
+      <div class="screen">383873</div>
+      <div class="teclado">
+        <button class="key" onclick="">
+          <ion-icon name="power-outline"></ion-icon>
+        </button>
+        <button class="key" onclick="">%</button>
+        <button class="key" onclick="clearScreen()">C</button>
+        <button class="key" onclick="">
+          <ion-icon name="backspace-outline"></ion-icon>
+        </button>
+        <button class="key" onclick="numbers(7)">7</button>
+        <button class="key" onclick="numbers(8)">8</button>
+        <button class="key" onclick="numbers(9)">9</button>
+        <button class="key" onclick="">÷</button>
+        <button class="key" onclick="numbers(4)">4</button>
+        <button class="key" onclick="numbers(5)">5</button>
+        <button class="key" onclick="numbers(6)">6</button>
+        <button class="key" onclick="">x</button>
+        <button class="key" onclick="numbers(1)">1</button>
+        <button class="key" onclick="numbers(2)">2</button>
+        <button class="key" onclick="numbers(3)">3</button>
+        <button class="key" onclick="">-</button>
+        <button class="key" onclick="numbers('.')">.</button>
+        <button class="key" onclick="numbers(0)">0</button>
+        <button class="key" onclick="">+</button>
+        <button class="key" onclick="suma()">=</button>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+@font-face {
+  font-family: SquareClock;
+  src: url(assets/SquareClock.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --border-color: #111;
+  --calc-color: #2a2a2a;
+}
+
+/* #2a2a2a calcu
+#01a2bf igual y prender 
+#F8333C rojito
+#AD2831 podria ser fondo
+#FEFDFF blanquito rotar*/
+
+body {
+  height: 100vh;
+  background-color: #ad2831;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.calculadora {
+  background-color: var(--calc-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 8px 14px 4px 4px #00000050;
+  transition: transform 800ms ease-in-out, box-shadow 600ms ease-in-out;
+  border: var(--border-color) ridge 3px;
+}
+
+.volteo {
+  transform: rotate(180deg);
+  box-shadow: -8px -14px 4px 4px #00000050;
+}
+
+.screen {
+  font-family: 'SquareClock', monospace;
+  background-color: #8d9781;
+  height: 90px;
+  margin: 10px 0 20px 0;
+  overflow: hidden;
+  min-width: 288px;
+  max-width: 288px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 15px;
+  font-size: 48px;
+  border: 5px inset #b5b1b2;
+  /* arreglar transition border-style */
+  transition: box-shadow 600ms ease-in-out, border-style 700ms linear;
+  box-shadow: inset 0px 1px 5px 2px #00000090;
+}
+
+.volteada {
+  box-shadow: inset 0px -1px 5px 2px #00000090;
+  border-style: outset;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 72px);
+  grid-template-rows: repeat(5, 50px);
+}
+
+button {
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--calc-color);
+  color: white;
+  margin: 2px;
+  border-radius: 15px;
+  border: var(--border-color) outset 3px;
+  font-size: 19px;
+  transition: box-shadow 600ms ease-in-out;
+  box-shadow: 10px 10px 10px -4px #00000040;
+}
+
+ion-icon {
+  font-size: 32px;
+}
+
+button:active {
+  border: var(--border-color) inset 4px;
+  filter: brightness(88%);
+}
+
+button:first-child,
+button:last-child {
+  background-color: #01a2bf;
+}
+
+button.magia {
+  background-color: #44af69;
+  margin-bottom: 15px;
+  width: 60px;
+  height: 50px;
+}
