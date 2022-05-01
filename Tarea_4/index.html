@@ -18,14 +18,14 @@
       <ion-icon name="refresh-outline"></ion-icon>
     </button>
     <div class="calculadora">
-      <div class="screen">383873</div>
+      <div class="screen"></div>
       <div class="teclado">
         <button class="key" onclick="">
           <ion-icon name="power-outline"></ion-icon>
         </button>
-        <button class="key" onclick="">%</button>
-        <button class="key" onclick="clearScreen()">C</button>
-        <button class="key" onclick="">
+        <button class="key" onclick="percent()">%</button>
+        <button class="key" onclick="clearAll()">C</button>
+        <button class="key" onclick="deleteLast()">
           <ion-icon name="backspace-outline"></ion-icon>
         </button>
         <button class="key" onclick="numbers(7)">7</button>
@@ -39,11 +39,11 @@
         <button class="key" onclick="numbers(1)">1</button>
         <button class="key" onclick="numbers(2)">2</button>
         <button class="key" onclick="numbers(3)">3</button>
-        <button class="key" onclick="">-</button>
+        <button class="key" onclick="resta()">-</button>
         <button class="key" onclick="numbers('.')">.</button>
         <button class="key" onclick="numbers(0)">0</button>
-        <button class="key" onclick="">+</button>
-        <button class="key" onclick="suma()">=</button>
+        <button class="key" onclick="suma()">+</button>
+        <button class="key" onclick="">=</button>
       </div>
     </div>
 

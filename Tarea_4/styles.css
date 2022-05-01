@@ -49,22 +49,22 @@ body {
   background-color: #8d9781;
   height: 90px;
   margin: 10px 0 20px 0;
+  width: 288px;
   overflow: hidden;
-  min-width: 288px;
-  max-width: 288px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   border-radius: 15px;
   font-size: 48px;
   border: 5px inset #b5b1b2;
+  text-shadow: 4px 5px 1px #1112;
   /* arreglar transition border-style */
   transition: box-shadow 600ms ease-in-out, border-style 700ms linear;
-  box-shadow: inset 0px 1px 5px 2px #00000090;
+  box-shadow: inset 0px 1px 5px 2px #0009;
 }
 
 .volteada {
-  box-shadow: inset 0px -1px 5px 2px #00000090;
+  box-shadow: inset 0px -1px 5px 2px #0009;
   border-style: outset;
 }
 
@@ -87,7 +87,7 @@ button {
   border: var(--border-color) outset 3px;
   font-size: 19px;
   transition: box-shadow 600ms ease-in-out;
-  box-shadow: 10px 10px 10px -4px #00000040;
+  box-shadow: 10px 10px 10px -4px #0004;
 }
 
 ion-icon {
