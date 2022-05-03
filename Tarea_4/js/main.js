@@ -1,32 +1,56 @@
 var screenValue = '';
-var totalAux = 0;
 var total = 0;
+var encendido = 0;
+var lastOperador = 0;
+var arr = [];
 
 function magia() {
   document.getElementsByClassName('calculadora')[0].classList.toggle('volteo');
   document.getElementsByClassName('screen')[0].classList.toggle('volteada');
 }
 
+function onOff() {
+  if (encendido == 0) {
+    encendido = 1;
+    screenValue = '0';
+    totalAux = 0;
+    total = 0;
+    arr = [];
+    updateScreen(screenValue);
+  } else {
+    encendido = 0;
+    updateScreen(screenValue);
+  }
+}
+
 function clearAll() {
   screenValue = '0';
   totalAux = 0;
   total = 0;
-  updateScreen(screenValue);
-}
-
-function clearScreen() {
-  screenValue = '0';
+  arr = [];
   updateScreen(screenValue);
 }
 
 function deleteLast() {
   screenValue = screenValue.slice(0, -1);
+  if (screenValue.length == 0) {
+    screenValue = '0';
+  }
   updateScreen(screenValue);
 }
 
 function updateScreen(info) {
   var screen = document.getElementsByClassName('screen')[0];
-  screen.innerHTML = info;
+  if (encendido == 1) {
+    screen.innerHTML = info;
+  } else {
+    screen.innerHTML = '';
+  }
+}
+
+function percent() {
+  screenValue = parseFloat(screenValue) / 10;
+  updateScreen(screenValue);
 }
 
 function numbers(num) {
@@ -38,29 +62,81 @@ function numbers(num) {
   updateScreen(screenValue);
 }
 
-function percent() {
-  screenValue = screenValue / 10;
-  updateScreen(screenValue);
+function operator(op) {
+  var operador = op.innerHTML;
+
+  if (arr.length == 0) {
+    arr.push(parseFloat(screenValue));
+    arr.push(operador);
+    screenValue = '';
+  } else if (arr.length == 2) {
+    if (screenValue != '') {
+      arr.push(parseFloat(screenValue));
+      lastOperador = arr[1];
+      calcular(operador, lastOperador);
+    } else {
+      arr[1] = operador;
+    }
+  }
 }
 
-function suma() {
-  total = parseFloat(total) + parseFloat(screenValue);
-  clearScreen();
+/* function igual() {
+  arr.push(parseFloat(screenValue));
 
-  if (total != 0) {
-    totalAux = total;
-    updateScreen(totalAux);
+  console.log(arr.length);
+  if (arr.length == 2) {
+  } else {
   }
-  console.log(total);
-}
+  arr.push(totalAux);
+  console.log(arr.length);
+  calcular(arr[1]);
+} */
 
-function resta() {
-  total = parseFloat(screenValue) - parseFloat(total);
-  clearScreen();
+function calcular(op) {
+  var operador = arr[1];
+  switch (operador) {
+    case '÷':
+      total = parseFloat(arr[0]) / parseFloat(arr[2]);
+      arr = [];
+      arr.push(total);
+      arr.push(op);
+      screenValue = '';
+      anterior = true;
+      updateScreen(total);
+      break;
 
-  if (total != 0) {
-    totalAux = total;
-    updateScreen(totalAux);
+    case 'x':
+      total = parseFloat(arr[0]) * parseFloat(arr[2]);
+      arr = [];
+      arr.push(total);
+      arr.push(op);
+      screenValue = '';
+      anterior = true;
+      updateScreen(total);
+      break;
+
+    case '-':
+      total = parseFloat(arr[0]) - parseFloat(arr[2]);
+      arr = [];
+      arr.push(total);
+      arr.push(op);
+      screenValue = '';
+      anterior = true;
+      updateScreen(total);
+      break;
+
+    case '+':
+      total = parseFloat(arr[0]) + parseFloat(arr[2]);
+      arr = [];
+      arr.push(total);
+      arr.push(op);
+      screenValue = '';
+      anterior = true;
+      updateScreen(total);
+      break;
+
+    default:
+      'error';
+      break;
   }
-  console.log(total);
 }

@@ -20,7 +20,7 @@
     <div class="calculadora">
       <div class="screen"></div>
       <div class="teclado">
-        <button class="key" onclick="">
+        <button class="key" onclick="onOff()">
           <ion-icon name="power-outline"></ion-icon>
         </button>
         <button class="key" onclick="percent()">%</button>
@@ -31,19 +31,19 @@
         <button class="key" onclick="numbers(7)">7</button>
         <button class="key" onclick="numbers(8)">8</button>
         <button class="key" onclick="numbers(9)">9</button>
-        <button class="key" onclick="">÷</button>
+        <button class="key" onclick="operator(this)">÷</button>
         <button class="key" onclick="numbers(4)">4</button>
         <button class="key" onclick="numbers(5)">5</button>
         <button class="key" onclick="numbers(6)">6</button>
-        <button class="key" onclick="">x</button>
+        <button class="key" onclick="operator(this)">x</button>
         <button class="key" onclick="numbers(1)">1</button>
         <button class="key" onclick="numbers(2)">2</button>
         <button class="key" onclick="numbers(3)">3</button>
-        <button class="key" onclick="resta()">-</button>
+        <button class="key" onclick="operator(this)">-</button>
         <button class="key" onclick="numbers('.')">.</button>
         <button class="key" onclick="numbers(0)">0</button>
-        <button class="key" onclick="suma()">+</button>
-        <button class="key" onclick="">=</button>
+        <button class="key" onclick="operator(this)">+</button>
+        <button class="key" onclick="igual()">=</button>
       </div>
     </div>
 
