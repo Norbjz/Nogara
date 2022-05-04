@@ -1,6 +1,6 @@
 var screenValue = '';
 var total = 0;
-var encendido = 0;
+var encendido = false;
 var prevNum = 0;
 var igualBtn = true;
 var arr = [];
@@ -11,8 +11,8 @@ function magia() {
 }
 
 function onOff() {
-  if (encendido == 0) {
-    encendido = 1;
+  if (encendido == false) {
+    encendido = true;
     screenValue = '0';
     total = 0;
     prevNum = 0;
@@ -20,8 +20,8 @@ function onOff() {
     arr = [];
     updateScreen(screenValue);
   } else {
-    encendido = 0;
-    updateScreen(screenValue);
+    encendido = false;
+    updateScreen();
   }
 }
 
@@ -44,7 +44,7 @@ function deleteLast() {
 
 function updateScreen(info) {
   var screen = document.getElementsByClassName('screen')[0];
-  if (encendido == 1) {
+  if (encendido) {
     screen.innerHTML = info;
   } else {
     screen.innerHTML = '';
