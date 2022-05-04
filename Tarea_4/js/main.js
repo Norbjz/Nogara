@@ -1,7 +1,8 @@
 var screenValue = '';
 var total = 0;
 var encendido = 0;
-var lastOperador = 0;
+var prevNum = 0;
+var igualBtn = true;
 var arr = [];
 
 function magia() {
@@ -15,6 +16,8 @@ function onOff() {
     screenValue = '0';
     totalAux = 0;
     total = 0;
+    prevNum = 0;
+    igualBtn = true;
     arr = [];
     updateScreen(screenValue);
   } else {
@@ -27,6 +30,8 @@ function clearAll() {
   screenValue = '0';
   totalAux = 0;
   total = 0;
+  prevNum = 0;
+  igualBtn = true;
   arr = [];
   updateScreen(screenValue);
 }
@@ -64,6 +69,7 @@ function numbers(num) {
 
 function operator(op) {
   var operador = op.innerHTML;
+  igualBtn = false;
 
   if (arr.length == 0) {
     arr.push(parseFloat(screenValue));
@@ -72,6 +78,7 @@ function operator(op) {
   } else if (arr.length == 2) {
     if (screenValue != '') {
       arr.push(parseFloat(screenValue));
+      prevNum = arr[2];
       calcular(operador);
     } else {
       arr[1] = operador;
@@ -79,63 +86,66 @@ function operator(op) {
   }
 }
 
-/* function igual() {
-  arr.push(parseFloat(screenValue));
-
-  console.log(arr.length);
-  if (arr.length == 2) {
-  } else {
-  }
-  arr.push(totalAux);
-  console.log(arr.length);
-  calcular(arr[1]);
-} */
-
 function calcular(op) {
   var operador = arr[1];
   switch (operador) {
     case '÷':
-      total = parseFloat(arr[0]) / parseFloat(arr[2]);
-      arr = [];
-      arr.push(total);
-      arr.push(op);
-      screenValue = '';
-      anterior = true;
-      updateScreen(total);
+      if (igualBtn) {
+        total = parseFloat(arr[0]) / prevNum;
+      } else {
+        total = parseFloat(arr[0]) / parseFloat(arr[2]);
+      }
+
       break;
 
     case 'x':
-      total = parseFloat(arr[0]) * parseFloat(arr[2]);
-      arr = [];
-      arr.push(total);
-      arr.push(op);
-      screenValue = '';
-      anterior = true;
-      updateScreen(total);
+      if (igualBtn) {
+        total = parseFloat(arr[0]) * prevNum;
+      } else {
+        total = parseFloat(arr[0]) * parseFloat(arr[2]);
+      }
+
       break;
 
     case '-':
-      total = parseFloat(arr[0]) - parseFloat(arr[2]);
-      arr = [];
-      arr.push(total);
-      arr.push(op);
-      screenValue = '';
-      anterior = true;
-      updateScreen(total);
+      if (igualBtn) {
+        total = parseFloat(arr[0]) - prevNum;
+      } else {
+        total = parseFloat(arr[0]) - parseFloat(arr[2]);
+      }
+
       break;
 
     case '+':
-      total = parseFloat(arr[0]) + parseFloat(arr[2]);
-      arr = [];
-      arr.push(total);
-      arr.push(op);
-      screenValue = '';
-      anterior = true;
-      updateScreen(total);
+      if (igualBtn) {
+        total = parseFloat(arr[0]) + prevNum;
+      } else {
+        total = parseFloat(arr[0]) + parseFloat(arr[2]);
+      }
+
       break;
 
     default:
       'error';
       break;
+  }
+
+  arr = [];
+  arr.push(total);
+  arr.push(op);
+  screenValue = '';
+  updateScreen(total);
+}
+
+function igual() {
+  if (igualBtn == false) {
+    igualBtn = true;
+    arr.push(parseFloat(screenValue));
+    console.log(arr);
+    prevNum = arr[2];
+    calcular(arr[1]);
+  } else {
+    igualBtn = true;
+    calcular(arr[1]);
   }
 }
