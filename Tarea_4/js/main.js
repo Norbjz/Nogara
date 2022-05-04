@@ -138,14 +138,17 @@ function calcular(op) {
 }
 
 function igual() {
-  if (igualBtn == false) {
-    igualBtn = true;
-    arr.push(parseFloat(screenValue));
-    console.log(arr);
-    prevNum = arr[2];
-    calcular(arr[1]);
+  if (arr.length == 0) {
+    return;
   } else {
-    igualBtn = true;
-    calcular(arr[1]);
+    if (igualBtn == false) {
+      igualBtn = true;
+      arr.push(parseFloat(screenValue));
+      prevNum = arr[2];
+      calcular(arr[1]);
+    } else {
+      igualBtn = true;
+      calcular(arr[1]);
+    }
   }
 }
