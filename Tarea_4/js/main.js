@@ -72,8 +72,7 @@ function operator(op) {
   } else if (arr.length == 2) {
     if (screenValue != '') {
       arr.push(parseFloat(screenValue));
-      lastOperador = arr[1];
-      calcular(operador, lastOperador);
+      calcular(operador);
     } else {
       arr[1] = operador;
     }
