@@ -14,7 +14,6 @@ function onOff() {
   if (encendido == 0) {
     encendido = 1;
     screenValue = '0';
-    totalAux = 0;
     total = 0;
     prevNum = 0;
     igualBtn = true;
@@ -28,7 +27,6 @@ function onOff() {
 
 function clearAll() {
   screenValue = '0';
-  totalAux = 0;
   total = 0;
   prevNum = 0;
   igualBtn = true;
@@ -59,6 +57,12 @@ function percent() {
 }
 
 function numbers(num) {
+  if (igualBtn) {
+    total = 0;
+    prevNum = 0;
+    arr = [];
+  }
+
   screenValue = screenValue.toString() + num.toString();
   if (screenValue.charAt(0) == 0) {
     screenValue = screenValue.substring(1, screenValue.length);
@@ -131,6 +135,7 @@ function calcular(op) {
   }
 
   arr = [];
+  total = Math.round((total + Number.EPSILON) * 10000) / 10000;
   arr.push(total);
   arr.push(op);
   screenValue = '';
