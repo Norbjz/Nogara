@@ -45,7 +45,12 @@ function deleteLast() {
 function updateScreen(info) {
   var screen = document.getElementsByClassName('screen')[0];
   if (encendido) {
-    screen.innerHTML = info;
+    if (info.length > 7) {
+      info = parseFloat(info);
+      screen.innerHTML = info.toExponential(2);
+    } else {
+      screen.innerHTML = info;
+    }
   } else {
     screen.innerHTML = '';
   }
@@ -139,6 +144,7 @@ function calcular(op) {
   arr.push(total);
   arr.push(op);
   screenValue = '';
+  total = total.toString();
   updateScreen(total);
 }
 
@@ -152,7 +158,6 @@ function igual() {
       prevNum = arr[2];
       calcular(arr[1]);
     } else {
-      igualBtn = true;
       calcular(arr[1]);
     }
   }
