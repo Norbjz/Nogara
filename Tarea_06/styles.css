@@ -9,19 +9,40 @@
 body {
   font-family: 'Cardo', serif;
   display: flex;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url(img/background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  flex-direction: column;
 }
 
-.comparacion {
-  width: 260px;
-  margin-left: 10px;
+h1 {
+  text-align: center;
+  margin: 40px;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 50px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+  margin: 20px 10px;
 }
 
 .card-container {
   border: 6px solid rgb(55, 57, 79);
-  width: 265px;
-  height: 385px;
-  background-color: aqua;
+  margin: 15px;
+  width: 270px;
+  height: 400px;
   background-image: url(img/card_front.jpg);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .card-head {
@@ -38,12 +59,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 8px;
+  font-size: 11px;
 }
 
 .name {
   color: rgb(89, 86, 53);
   font-weight: 700;
+  text-transform: capitalize;
 }
 
 .type {
@@ -59,9 +81,9 @@ body {
 
 .text-box {
   border: solid rgb(193, 111, 26) 2px;
-  width: 230px;
+  width: 240px;
   margin: auto;
-  height: 75px;
+  height: 90px;
   position: relative;
   padding: 1px;
   background-color: rgba(255, 255, 255, 0.7);
@@ -69,18 +91,20 @@ body {
 
 .monster-type {
   font-size: 12px;
+  text-transform: capitalize;
 }
 
 .description {
-  font-size: 11.5px;
+  font-size: 11px;
   font-style: italic;
+  line-height: 11px;
 }
 
 .stats {
   display: flex;
   justify-content: flex-end;
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   right: 2px;
   border-top: black 1px solid;
   width: 98%;
@@ -90,7 +114,7 @@ body {
 }
 
 .attack {
-  margin-right: 15px;
+  margin-right: 6px;
 }
 
 .defense {
@@ -101,7 +125,7 @@ body {
   margin: 3px auto;
   width: 206px;
   height: 204px;
-  background-image: url(img/cards/IMG-20211005-WA0003.jpg);
+  /*   background-image: url(img/cards/IMG-20211005-WA0003.jpg); */
   background-position: 233px -66px;
   background-size: 260px;
   box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.8);
@@ -112,7 +136,7 @@ body {
 .stars {
   display: flex;
   flex-direction: row;
-  width: 205px;
+  width: 230px;
   margin: 2px auto;
   justify-content: flex-end;
 }
