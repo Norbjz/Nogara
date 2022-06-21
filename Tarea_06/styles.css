@@ -1,14 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@0;1&display=swap');
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Cardo', serif;
+  display: flex;
+}
+
+.comparacion {
+  width: 260px;
+}
+
+.card-head {
+  box-shadow: -6px -6px 5px -6px rgba(0, 0, 0, 1) inset,
+    6px 6px 5px -6px rgb(255, 255, 255) inset;
+  -webkit-box-shadow: -6px -6px 5px -6px rgba(0, 0, 0, 1) inset,
+    6px 6px 5px -6px rgb(255, 255, 255) inset;
+  -moz-box-shadow: -6px -6px 5px -6px rgba(0, 0, 0, 1) inset,
+    6px 6px 5px -6px rgb(255, 255, 255) inset;
+  width: 230px;
+  height: 32px;
+  padding: 5px;
+  margin: 5px auto 0px auto;
+  font-size: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.type {
+  width: 26px;
+}
+
 .card-img {
-  border: 5px solid white;
   margin: auto;
-  width: 320px;
-  height: 320px;
-  background-image: url(img/cards/IMG-20211005-WA0001.jpg);
-  background-position: 365px -115px;
+  width: 206px;
+  height: 204px;
+  background-image: url(img/cards/IMG-20211005-WA0003.jpg);
+  background-position: 233px -66px;
+  background-size: 260px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 1);
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  width: 205px;
+  margin: 2px auto;
+  justify-content: flex-end;
+}
+
+.star-img {
+  width: 16px;
+}
+
+.card-container {
+  border: 2px solid red;
+  width: 260px;
+  height: 380px;
+  background-color: aqua;
+  /*   background-image: url(img/card_front.jpg); */
 }
