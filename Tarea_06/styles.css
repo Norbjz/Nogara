@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
-.card .img {
-  border: 5px solid gray;
+.card-img {
+  border: 5px solid white;
   margin: auto;
-  width: 84%;
-  height: 313px;
-  background-image: url(../img/cards/IMG-20211005-WA0001.jpg);
-  background-position: 362px -114px;
+  width: 320px;
+  height: 320px;
+  background-image: url(img/cards/IMG-20211005-WA0001.jpg);
+  background-position: 365px -115px;
 }
