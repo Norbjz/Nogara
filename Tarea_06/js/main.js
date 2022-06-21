@@ -161,15 +161,6 @@ var tiktokers = [
     def: 5000,
     img: 'Maybe.jpg',
   },
-  {
-    name: 'Veronica Barrientos',
-    stars: 12,
-    type: 'Bestia Divina / Effect',
-    info: 'Alias T-Girl, con su habilidad especial dino explicación ayuda a los demás a elevar su ATK 250 cada ronda, habilidad natural para pláticas astrales, debilidad chocolates',
-    atk: 3000,
-    def: 3000,
-    img: 'Vero.jpg',
-  },
 ];
 
 function clicDerecho(event) {
