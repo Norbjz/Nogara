@@ -136,7 +136,7 @@ h1 {
 .stars {
   display: flex;
   flex-direction: row;
-  width: 230px;
+  width: 205px;
   margin: 2px auto;
   justify-content: flex-end;
 }
